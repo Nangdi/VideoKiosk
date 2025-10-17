@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2381fc4f361149a41b85ffd0225d4a5a, type: 3}
+  m_Name: LocalizationData
+  m_EditorClassIdentifier: 
+  entries:
+  - korean: "\uAC01\uC6B4\uB3D9\uB7C9 \uC2E4\uD5D8"
+    english: Angular Momentum Experiment
+    koreanSprite: {fileID: 21300000, guid: 049e83e752c22e54f81f94af5595afa9, type: 3}
+    englishSprite: {fileID: 21300000, guid: 28862e3de66c4e0488d4f4d4ba80a807, type: 3}
+  - korean: "\uAC01\uC6B4\uB3D9\uB7C9 \uC2E4\uD5D8"
+    english: Angular Momentum Experiment
+    koreanSprite: {fileID: 21300000, guid: f33ac30b34191e34aab3474deb14b1be, type: 3}
+    englishSprite: {fileID: 21300000, guid: e792148ffb0b7454e8d331b5b8a4d2fb, type: 3}
+  - korean: 
+    english: 
+    koreanSprite: {fileID: 21300000, guid: e3faa378db7027141af26adc6cb41774, type: 3}
+    englishSprite: {fileID: 21300000, guid: 01bf5478d706b9c46bcd4da8043061aa, type: 3}
+  - korean: 
+    english: 
+    koreanSprite: {fileID: 21300000, guid: 2ecf3eb3e90bfd2489bd4de33b188f0b, type: 3}
+    englishSprite: {fileID: 21300000, guid: 5926cd31aa0d13d48a205e840c9f25c0, type: 3}
+  - korean: 
+    english: 
+    koreanSprite: {fileID: 21300000, guid: 54cc340dcdfe8cb4ca7580c9fe0098a9, type: 3}
+    englishSprite: {fileID: 21300000, guid: 42a6ba570556b3943abd21acd17470ec, type: 3}
+  - korean: 
+    english: 
+    koreanSprite: {fileID: 21300000, guid: d86eac2f29651e44b82e6269678adbe0, type: 3}
+    englishSprite: {fileID: 21300000, guid: 2a3fe7c68f16ece4eb8806a613295483, type: 3}
+  - korean: 
+    english: 
+    koreanSprite: {fileID: 21300000, guid: c27442886919446409f8950b2f217c42, type: 3}
+    englishSprite: {fileID: 21300000, guid: c62a010708c5df34480bf1b7b8ace9c3, type: 3}
+  - korean: 
+    english: 
+    koreanSprite: {fileID: 21300000, guid: 6ac8604e58e959c4ba831ae2b54770f6, type: 3}
+    englishSprite: {fileID: 21300000, guid: b8257a333176cb545a5e0bd84b9d93ee, type: 3}
+  - korean: 
+    english: 
+    koreanSprite: {fileID: 21300000, guid: 3d43d8fb31a12fb49bd4be67433f66fa, type: 3}
+    englishSprite: {fileID: 21300000, guid: d2b9d505c7673bb4c9b73b75cd3a864e, type: 3}
+  languageText: []
+  languageSprite:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

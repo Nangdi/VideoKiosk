@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.UI;
 using RenderHeads.Media.AVProVideo;
 using System.IO;
@@ -7,15 +7,9 @@ using UnityEngine.UI;
 
 public class AVProVideoController : MonoBehaviour
 {
+    [SerializeField] private ButtonActiveController buttonController;
     public MediaPlayer mediaPlayer;  // AVPro MediaPlayer
-    public Button button1;           // √º«Ë πÊπ˝
-    public Button button2;           // ø¯∏Æ
-    public Button button3;           // ¥ıæÀæ∆∫∏±‚
-
-    public Button button1_BG;           // √º«Ë πÊπ˝
-    public Button button2_BG;           // ø¯∏Æ
-    public Button button3_BG;           // ¥ıæÀæ∆∫∏±‚
-
+    [SerializeField] private Slider playVar;
 
     private string video1 = "video1.mp4";
     private string video2 = "video2.mp4";
@@ -28,21 +22,40 @@ public class AVProVideoController : MonoBehaviour
 
     void Start()
     {
-        // πˆ∆∞ ¿Ã∫•∆Æ ø¨∞·
-        button1.onClick.AddListener(() => PlayGuide(video1));
-        button2.onClick.AddListener(() => PlayGuide(video2));
-        button3.onClick.AddListener(() => PlayGuide(video3));
-        button1_BG.onClick.AddListener(() => PlayGuide(video1));
-        button2_BG.onClick.AddListener(() => PlayGuide(video2));
-        button3_BG.onClick.AddListener(() => PlayGuide(video3));
+        // Î≤ÑÌäº Ïù¥Î≤§Ìä∏ Ïó∞Í≤∞
+        buttonController.buttons[0].onClick.AddListener(() => PlayGuide(video1));
+        buttonController.buttons[1].onClick.AddListener(() => PlayGuide(video2));
+        buttonController.buttons[2].onClick.AddListener(() => PlayGuide(video3));
+        buttonController.button1_BG.onClick.AddListener(() => PlayGuide(video1));
+        buttonController.button2_BG.onClick.AddListener(() => PlayGuide(video2));
+        buttonController.button3_BG.onClick.AddListener(() => PlayGuide(video3));
 
-        // ¿Ã∫•∆Æ ∏ÆΩ∫≥  µÓ∑œ
+        // Ïù¥Î≤§Ìä∏ Î¶¨Ïä§ÎÑà Îì±Î°ù
         mediaPlayer.Events.AddListener(OnMediaEvent);
 
-        // ±‚∫ª øµªÛ ¿Áª˝
+        // Í∏∞Î≥∏ ÏòÅÏÉÅ Ïû¨ÏÉù
         //PlayDefaultLoop();
     }
+    private void Update()
+    {
+        if (mediaPlayer == null || !mediaPlayer.Control.IsPlaying())
+            return;
+        float currentTime = (float)mediaPlayer.Control.GetCurrentTime();  // ms Îã®ÏúÑ
+        float totalTime = (float)mediaPlayer.Info.GetDuration();          // ms Îã®ÏúÑ
 
+        if (totalTime > 0f)
+        {
+            // 3Ô∏è‚É£ ÎπÑÏú® Í≥ÑÏÇ∞
+            float normalized = currentTime / totalTime;
+
+            // 4Ô∏è‚É£ Ïä¨ÎùºÏù¥ÎçîÏóê Ï†ÅÏö©
+            playVar.value = normalized;  // 0.0 ~ 1.0
+        }
+        else
+        {
+            playVar.value = 0f;
+        }
+    }
     void PlayDefaultLoop()
     {
         
@@ -51,12 +64,12 @@ public class AVProVideoController : MonoBehaviour
         currentFile = video1;
         string path = Path.Combine(Application.streamingAssetsPath, video1);
         mediaPlayer.OpenMedia(MediaPathType.AbsolutePathOrURL, path, autoPlay: true);
-        Debug.Log("∞Ê∑Œ »Æ¿Œ: " + path);
-        Debug.Log(File.Exists(path));  // true ≥™ø¿∏È OK
+        Debug.Log("Í≤ΩÎ°ú ÌôïÏù∏: " + path);
+        Debug.Log(File.Exists(path));  // true ÎÇòÏò§Î©¥ OK
         mediaPlayer.Control.SetLooping(true);
     }
 
-    void PlayGuide(string guideFileName)
+    public void PlayGuide(string guideFileName)
     {
         if(currentFile == guideFileName)
         {
@@ -77,17 +90,15 @@ public class AVProVideoController : MonoBehaviour
         if (evtType == MediaPlayerEvent.EventType.FinishedPlaying)
         {
             //PlayDefaultLoop();
-            ClearButtonSelection();
+            buttonController.ClearButtonSelection();
             SetActiveBG(true);
             currentFile = "";
         }
     }
-    void ClearButtonSelection()
-    {
-        EventSystem.current.SetSelectedGameObject(button1.gameObject);
-    }
+   
     private void SetActiveBG(bool isActive)
     {
         backGround.SetActive(isActive);
     }
+  
 }
