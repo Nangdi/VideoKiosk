@@ -17,7 +17,7 @@ public class AVProVideoController : MonoBehaviour
     
     private bool isGuidePlaying = false;
     private string currentFile;
-
+    private bool isHandling;
     [SerializeField] private GameObject backGround;
 
     void Start()
@@ -38,7 +38,7 @@ public class AVProVideoController : MonoBehaviour
     }
     private void Update()
     {
-        if (mediaPlayer == null || !mediaPlayer.Control.IsPlaying())
+        if (mediaPlayer == null || !mediaPlayer.Control.IsPlaying() || isHandling)
             return;
         float currentTime = (float)mediaPlayer.Control.GetCurrentTime();  // ms 단위
         float totalTime = (float)mediaPlayer.Info.GetDuration();          // ms 단위
@@ -100,5 +100,21 @@ public class AVProVideoController : MonoBehaviour
     {
         backGround.SetActive(isActive);
     }
-  
+    public void onPointerDown()
+    {
+        isHandling = true;
+        mediaPlayer.Control.Pause();
+    }
+    public void onPointerUp()
+    {
+        isHandling = false;
+        mediaPlayer.Control.Play();
+    }
+    public void SetCurrentTime(float value)
+    {
+        if (!isHandling) return;
+        float totalTime = (float)mediaPlayer.Info.GetDuration();
+        
+        mediaPlayer.Control.Seek(totalTime * value);
+    }
 }

@@ -30,7 +30,8 @@ public class SFXManager : MonoBehaviour
     }
     private void Start()
     {
-        SetVolume(0.5f);
+        
+        SetVolume(JsonManager.instance.gameSettingData.btnSoundVolume);
     }
 
     /// <summary>

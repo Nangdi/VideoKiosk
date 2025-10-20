@@ -12,6 +12,7 @@ public class LoclaizationManager : MonoBehaviour
 {
     public Language language = Language.Korean;
     public LocalizationData localizationData;
+    [SerializeField]private ButtonActiveController buttonActiveController;
     public List<Image> langImages= new List<Image>();
     public List<Button> langBtns= new List<Button>();
     // index 5 6 7 (cashingOnBtn) 이미지를 2 3 4 버튼 select , pressed 교체해줘야함
@@ -32,6 +33,7 @@ public class LoclaizationManager : MonoBehaviour
             language = Language.Korean;
         }
         localizationData.Localiztion(language);
+        buttonActiveController.ToggleRect(language);
         ChangeOnBtnSprite();
     }
     private void ChangeOnBtnSprite()
@@ -41,7 +43,6 @@ public class LoclaizationManager : MonoBehaviour
             var state = langBtns[i].spriteState;
             //state.pressedSprite = langImages[i + 5].sprite;
             state.selectedSprite = langImages[i + 5].sprite;
-            Debug.Log(langImages[i + 3].sprite.name);
             langBtns[i].spriteState = state;
         }
     }
