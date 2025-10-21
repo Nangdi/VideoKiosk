@@ -4204,6 +4204,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6278274943537624538, guid: 74d235569d29f4e41a131f0d9cfcfe00, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d1951953196b39478166c27ed9db9f2, type: 3}
     - target: {fileID: 6919987087424618046, guid: 74d235569d29f4e41a131f0d9cfcfe00, type: 3}
       propertyPath: m_Name
       value: cashingImage (2)
@@ -4237,6 +4241,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1973947676}
     m_Modifications:
+    - target: {fileID: 3715832511495085702, guid: 2b6781dbf78ba224c8b698aa24f49225, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cfa511d47b4ee754eb44803db7cf12e6, type: 3}
     - target: {fileID: 5866319751228961827, guid: 2b6781dbf78ba224c8b698aa24f49225, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4350,6 +4358,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1973947676}
     m_Modifications:
+    - target: {fileID: 3100136663339670143, guid: c4fc823d28ba95b4d84bdd9e6587faa3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 10495894ed7564248a9f8360f9e6ff53, type: 3}
     - target: {fileID: 3969498369790187513, guid: c4fc823d28ba95b4d84bdd9e6587faa3, type: 3}
       propertyPath: m_Name
       value: Button (video 1)
@@ -4439,6 +4451,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6071652170723847867, guid: c4fc823d28ba95b4d84bdd9e6587faa3, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 549a9fd14415a8a4a9a9332693535175, type: 3}
+    - target: {fileID: 6071652170723847867, guid: c4fc823d28ba95b4d84bdd9e6587faa3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4508,6 +4524,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1830925853951416519, guid: 255a46b13c6428c419279d8e7ee0bf29, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cfa511d47b4ee754eb44803db7cf12e6, type: 3}
+    - target: {fileID: 1830925853951416519, guid: 255a46b13c6428c419279d8e7ee0bf29, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4567,6 +4587,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7946060174189188117, guid: 255a46b13c6428c419279d8e7ee0bf29, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3dfd5bc288c006040a86ccab2e0f2b93, type: 3}
     - target: {fileID: 8007315242224658621, guid: 255a46b13c6428c419279d8e7ee0bf29, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5133,6 +5157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cashingImage
       objectReference: {fileID: 0}
+    - target: {fileID: 8012893959419488729, guid: ce17e881769d7994d9341306dd80d99f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 549a9fd14415a8a4a9a9332693535175, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5162,10 +5190,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1973947676}
     m_Modifications:
+    - target: {fileID: 104744387281276309, guid: 48379ed34a5efce4fba59069e72b5544, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f50a9b44037b4b4a9a5ac323971a01f, type: 3}
     - target: {fileID: 3201942164961401453, guid: 48379ed34a5efce4fba59069e72b5544, type: 3}
       propertyPath: m_SpriteState.m_PressedSprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3201942164961401453, guid: 48379ed34a5efce4fba59069e72b5544, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d1951953196b39478166c27ed9db9f2, type: 3}
     - target: {fileID: 3201942164961401453, guid: 48379ed34a5efce4fba59069e72b5544, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2

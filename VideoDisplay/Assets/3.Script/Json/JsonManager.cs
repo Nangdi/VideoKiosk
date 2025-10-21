@@ -39,7 +39,14 @@ public class JsonManager : MonoBehaviour
         gameSettingData = LoadData(gameDataPath, gameSettingData);
         portJson= LoadData(portPath, portJson);
     }
+    void Start()
+    {
+        // 화면 방향 세로로 강제
+        Screen.orientation = ScreenOrientation.Portrait;
 
+        // 전체화면 모드에서 세로 비율 강제 (Standalone용)
+        Screen.SetResolution(1080, 1920, true);
+    }
     //저장할 json 객체 , 경로설정
     public static void SaveData<T>(T jsonObject, string path) where T : new()
     {
