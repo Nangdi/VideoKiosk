@@ -4,13 +4,16 @@ using RenderHeads.Media.AVProVideo;
 using System.IO;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class AVProVideoController : MonoBehaviour
 {
     [SerializeField] private ButtonActiveController buttonController;
     public MediaPlayer mediaPlayer;  // AVPro MediaPlayer
     [SerializeField] private Slider playVar;
-
+    [SerializeField] private TMP_Text timeText;
+    public Image PlayBtn;
+    public Sprite[] btnimage; 
     private string video1 = "video1.mp4";
     private string video2 = "video2.mp4";
     private string video3 = "video3.mp4";
@@ -18,6 +21,8 @@ public class AVProVideoController : MonoBehaviour
     private bool isGuidePlaying = false;
     private string currentFile;
     private bool isHandling;
+    private bool isPlay = false;
+
     [SerializeField] private GameObject backGround;
 
     void Start()
@@ -50,9 +55,12 @@ public class AVProVideoController : MonoBehaviour
 
             // 4️⃣ 슬라이더에 적용
             playVar.value = normalized;  // 0.0 ~ 1.0
+            float remainingTime = totalTime - currentTime;
+            timeText.text = FormatTime(remainingTime);
         }
         else
         {
+            timeText.text = "00:00:00";
             playVar.value = 0f;
         }
     }
@@ -77,6 +85,7 @@ public class AVProVideoController : MonoBehaviour
         }
         currentFile = guideFileName;
         SetActiveBG(false);
+        isPlay = true;
         //isGuidePlaying = true;
         mediaPlayer.Control.Stop();
 
@@ -87,13 +96,23 @@ public class AVProVideoController : MonoBehaviour
 
     void OnMediaEvent(MediaPlayer mp, MediaPlayerEvent.EventType evtType, ErrorCode error)
     {
-        if (evtType == MediaPlayerEvent.EventType.FinishedPlaying)
+        if (evtType == MediaPlayerEvent.EventType.FinishedPlaying )
         {
-            //PlayDefaultLoop();
-            buttonController.ClearButtonSelection();
-            SetActiveBG(true);
-            currentFile = "";
+            EndVideo();
         }
+    }
+    private void EndVideo()
+    {
+        //PlayDefaultLoop();
+        buttonController.ClearButtonSelection();
+        SetActiveBG(true);
+        isPlay = false;
+        currentFile = "";
+    }
+    public void homeBtn()
+    {
+        mediaPlayer.Control.Stop();
+        EndVideo();
     }
    
     private void SetActiveBG(bool isActive)
@@ -110,11 +129,49 @@ public class AVProVideoController : MonoBehaviour
         isHandling = false;
         mediaPlayer.Control.Play();
     }
+    private void OnPlayClicked()
+    {
+        mediaPlayer.Control.Play();
+    }
+    private void OnPauseClicked()
+    {
+        mediaPlayer.Control.Pause();
+    }
+    public void OnClickPlay()
+    {
+        if (isPlay)
+        {
+            isPlay = false;
+            mediaPlayer.Control.Pause();
+            PlayBtn.sprite = btnimage[0];
+            //sprite교체
+        }
+        else
+        {
+            isPlay = true;
+            mediaPlayer.Control.Play();
+            PlayBtn.sprite = btnimage[1];
+        }
+    }
+
     public void SetCurrentTime(float value)
     {
-        if (!isHandling) return;
+        //if (!isHandling) return;
         float totalTime = (float)mediaPlayer.Info.GetDuration();
-        
         mediaPlayer.Control.Seek(totalTime * value);
+        Debug.Log(totalTime - (totalTime* value));
+        float remainder = totalTime - (totalTime * value);
+        timeText.text = FormatTime(remainder);
+    }
+
+    // 🕒 시간 포맷 함수
+    private string FormatTime(float ms)
+    {
+        ms = ms * 1000;
+        int minutes = Mathf.FloorToInt(ms / 60000f);
+        int seconds = Mathf.FloorToInt((ms % 60000f) / 1000f);
+        int milliseconds = Mathf.FloorToInt(ms % 1000f);
+
+        return $"{minutes:00}:{seconds:00}:{milliseconds:00}";
     }
 }

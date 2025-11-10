@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq.Expressions;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 public enum Language
 {
     Korean,
@@ -11,16 +14,23 @@ public enum Language
 public class LoclaizationManager : MonoBehaviour
 {
     public Language language = Language.Korean;
-    public LocalizationData localizationData;
+    public LocalizationData[] DataStore;
+    private LocalizationData localizationData;
     [SerializeField]private ButtonActiveController buttonActiveController;
     public List<Image> langImages= new List<Image>();
     public List<Button> langBtns= new List<Button>();
+    public List<GameObject> textObs = new List<GameObject>();
+
     // index 5 6 7 (cashingOnBtn) 이미지를 2 3 4 버튼 select , pressed 교체해줘야함
     private void Start()
     {
-        language = Language.Korean;
+        language = Language.English;
+        //0 블루 , 1 레드 , 2 블루그린 , 3그린
+        localizationData = DataStore[JsonManager.instance.textJson.SceneIndex];
+        //localizationData = DataStore[2];
         localizationData.languageSprite = langImages;
         localizationData.Localiztion(language);
+        SwitchLang();
     }
     public void SwitchLang()
     {
@@ -33,7 +43,8 @@ public class LoclaizationManager : MonoBehaviour
             language = Language.Korean;
         }
         localizationData.Localiztion(language);
-        buttonActiveController.ToggleRect(language);
+        //buttonActiveController.ToggleRect(language);
+        LocalizionToText(language);
         ChangeOnBtnSprite();
     }
     private void ChangeOnBtnSprite()
@@ -46,4 +57,23 @@ public class LoclaizationManager : MonoBehaviour
             langBtns[i].spriteState = state;
         }
     }
+    private void LocalizionToText(Language language)
+    {
+        for (int i = 0; i < textObs.Count; i++)
+        {
+            textObs[i].SetActive(false);
+        }
+        switch (language)
+        {
+            case Language.Korean:
+                textObs[0].SetActive(true);
+                textObs[1].SetActive(true);
+                break;
+            case Language.English:
+                textObs[2].SetActive(true);
+                textObs[3].SetActive(true);
+                break;
+        }
+    }
+
 }

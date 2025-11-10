@@ -34,6 +34,7 @@ public class ButtonActiveController : MonoBehaviour, IPointerClickHandler
     public Button button1_BG;           // 체험 방법
     public Button button2_BG;           // 원리
     public Button button3_BG;           // 더알아보기
+ 
     private Button currentBtn;
 
     public List<BtnSize> btnsizes = new List<BtnSize>();   

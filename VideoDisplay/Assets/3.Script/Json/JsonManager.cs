@@ -6,7 +6,21 @@ using UnityEngine;
 public class GameSettingData
 {
     public float btnSoundVolume = 0.5f;
+   
 }
+public class TextJson 
+{
+    public string koTitle = "각운동량\n실험";
+    public string koTitle2 = "각운동량실험";
+    public string enTitle = "Angular\nMomentum\nExperiment\n";
+    public string enTitle2 = "Angular Momentum Experiment";
+    public bool isAutoSize_Ko = true;
+    public float fontSize_Ko = 150;
+    public bool isAutoSize_En = false;
+    public float fontSize_En = 104;
+    public int SceneIndex = 0;
+}
+
 public class PortJson
 {
     public string com = "COM4";
@@ -18,9 +32,11 @@ public class JsonManager : MonoBehaviour
 
     public static JsonManager instance;
     public GameSettingData gameSettingData;
+    public TextJson textJson;
     public PortJson portJson;
     private string gameDataPath;
     private string portPath;
+    private string textPath;
     private void Awake()
     {
         if (instance == null)
@@ -34,9 +50,11 @@ public class JsonManager : MonoBehaviour
         }
 
         portPath = Path.Combine(Application.streamingAssetsPath, "port.json");
+        textPath = Path.Combine(Application.streamingAssetsPath, "titleText.json");
         gameDataPath = Path.Combine(Application.persistentDataPath, "gameSettingData.json");
 
         gameSettingData = LoadData(gameDataPath, gameSettingData);
+        textJson = LoadData(textPath, textJson);
         portJson= LoadData(portPath, portJson);
     }
     void Start()

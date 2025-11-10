@@ -14,6 +14,7 @@ public class LocalizationData : ScriptableObject
         public string english;
         public Sprite koreanSprite;
         public Sprite englishSprite;
+        public Image targetImage;
     }
     public List<Entry> entries = new();
     public List<TMP_Text> languageText = new();
