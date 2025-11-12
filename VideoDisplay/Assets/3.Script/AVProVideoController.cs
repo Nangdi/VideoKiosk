@@ -9,6 +9,7 @@ using TMPro;
 public class AVProVideoController : MonoBehaviour
 {
     [SerializeField] private ButtonActiveController buttonController;
+    [SerializeField] private HomeReturn homeReturn;
     public MediaPlayer mediaPlayer;  // AVPro MediaPlayer
     [SerializeField] private Slider playVar;
     [SerializeField] private TMP_Text timeText;
@@ -112,6 +113,7 @@ public class AVProVideoController : MonoBehaviour
     public void homeBtn()
     {
         mediaPlayer.Control.Stop();
+        homeReturn.startReturnCount = false;
         EndVideo();
     }
    
@@ -122,11 +124,18 @@ public class AVProVideoController : MonoBehaviour
     public void onPointerDown()
     {
         isHandling = true;
+        homeReturn.startReturnCount = false;
         mediaPlayer.Control.Pause();
+
+
     }
     public void onPointerUp()
     {
         isHandling = false;
+
+        isPlay = true;
+        homeReturn.startReturnCount = false;
+        PlayBtn.sprite = btnimage[1];
         mediaPlayer.Control.Play();
     }
     private void OnPlayClicked()
@@ -144,12 +153,15 @@ public class AVProVideoController : MonoBehaviour
             isPlay = false;
             mediaPlayer.Control.Pause();
             PlayBtn.sprite = btnimage[0];
+            homeReturn.lapseTime = 0;
+            homeReturn.startReturnCount = true;
             //sprite교체
         }
         else
         {
             isPlay = true;
             mediaPlayer.Control.Play();
+            homeReturn.startReturnCount = false;
             PlayBtn.sprite = btnimage[1];
         }
     }

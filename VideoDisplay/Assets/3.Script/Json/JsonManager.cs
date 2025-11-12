@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameSettingData
 {
     public float btnSoundVolume = 0.5f;
+    public float returnTime = 30f;
    
 }
 public class TextJson 
