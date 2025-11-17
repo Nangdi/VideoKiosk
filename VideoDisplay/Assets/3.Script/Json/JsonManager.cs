@@ -7,7 +7,8 @@ public class GameSettingData
 {
     public float btnSoundVolume = 0.5f;
     public float returnTime = 30f;
-   
+
+
 }
 public class TextJson 
 {
@@ -20,6 +21,13 @@ public class TextJson
     public bool isAutoSize_En = false;
     public float fontSize_En = 104;
     public int SceneIndex = 0;
+
+}
+public class TimeSetting
+{
+    public bool useShowVideo= true;
+    public int showIntervalMinutes = 10;
+
 }
 
 public class PortJson
@@ -34,10 +42,12 @@ public class JsonManager : MonoBehaviour
     public static JsonManager instance;
     public GameSettingData gameSettingData;
     public TextJson textJson;
+    public TimeSetting timeSetting;
     public PortJson portJson;
     private string gameDataPath;
     private string portPath;
     private string textPath;
+    private string timePath;
     private void Awake()
     {
         if (instance == null)
@@ -53,8 +63,10 @@ public class JsonManager : MonoBehaviour
         portPath = Path.Combine(Application.streamingAssetsPath, "port.json");
         textPath = Path.Combine(Application.streamingAssetsPath, "titleText.json");
         gameDataPath = Path.Combine(Application.persistentDataPath, "gameSettingData.json");
+        timePath = Path.Combine(Application.persistentDataPath, "timeSetting.json");
 
         gameSettingData = LoadData(gameDataPath, gameSettingData);
+        timeSetting = LoadData(timePath, timeSetting);
         textJson = LoadData(textPath, textJson);
         portJson= LoadData(portPath, portJson);
     }

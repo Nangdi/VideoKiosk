@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 public enum Language
 {
     Korean,

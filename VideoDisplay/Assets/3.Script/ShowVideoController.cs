@@ -14,13 +14,19 @@ public class ShowVideoController : MonoBehaviour
     public MediaPlayer mediaPlayer;  // AVPro MediaPlayer
     public CanvasGroup showCanvasGroup;
     private string showFile= "show.mp4";
+    public int intervalMinutes = 10; // 기본은 60분(정각). Inspector에서 수정 가능
     float time = 0;
     void Start()
     {
         GetShowFile();
         StopShow();
         showMediaPlayer.Events.AddListener(OnMediaEvent);
-        StartCoroutine(WaitUntilNextHour());
+        intervalMinutes = JsonManager.instance.timeSetting.showIntervalMinutes;
+        if (JsonManager.instance.timeSetting.useShowVideo)
+        {
+            StartCoroutine(WaitUntilNextHour());
+
+        }
     }
     private void Update()
     {
@@ -40,25 +46,45 @@ public class ShowVideoController : MonoBehaviour
         while (true)
         {
             DateTime now = DateTime.Now;
-            // 다음 정각 시각 계산
-            DateTime nextHour = now.AddHours(1).Date.AddHours(now.Hour + 1);
-            double secondsToNextHour = (nextHour - now).TotalSeconds;
 
-            Debug.Log($"[HourlyVideoPlayer] 다음 정각까지 {secondsToNextHour}초 대기");
+            // 현재 시간에서 intervalMinutes만큼 증가한 "다음 실행 시각" 계산
+            DateTime next = now.AddMinutes(intervalMinutes);
 
-            yield return new WaitForSeconds((float)secondsToNextHour);
-            if (!mediaPlayer.Control.IsPlaying())
+            // next 를 정밀하게 "interval 단위 정렬" 하려면 아래처럼 계산
+            int nextMinuteBlock = ((now.Minute / intervalMinutes) + 1) * intervalMinutes;
+
+            // 만약 60 이상이면 다음 시간으로 넘긴다
+            if (nextMinuteBlock >= 60)
             {
-                PlayVideo();
-
+                next = new DateTime(now.Year, now.Month, now.Day, now.Hour, 0, 0)
+                        .AddHours(1)
+                        .AddMinutes(nextMinuteBlock - 60);
             }
             else
             {
-                Debug.Log($"패널사용중으로 비디오재생 x");
+                next = new DateTime(now.Year, now.Month, now.Day, now.Hour, nextMinuteBlock, 0);
             }
 
-            // 영상 재생 후 다시 다음 정각까지 대기
+            double secondsToNext = (next - now).TotalSeconds;
+
+            Debug.Log($"[HourlyVideoPlayer] 다음 실행까지 {secondsToNext}초 남음 (interval={intervalMinutes}분)");
+
+            yield return new WaitForSeconds((float)secondsToNext);
+
+            // 조건 실행
+            if (!mediaPlayer.Control.IsPlaying())
+            {
+                PlayVideo();
+            }
+            else
+            {
+                Debug.Log($"패널 사용중 → 비디오 재생 X");
+            }
+
+            // 계속 반복
         }
+        // 영상 재생 후 다시 다음 정각까지 대기
+    
     }
 
     private void PlayVideo()
