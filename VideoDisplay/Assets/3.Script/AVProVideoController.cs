@@ -171,7 +171,7 @@ public class AVProVideoController : MonoBehaviour
         //if (!isHandling) return;
         float totalTime = (float)mediaPlayer.Info.GetDuration();
         mediaPlayer.Control.Seek(totalTime * value);
-        Debug.Log(totalTime - (totalTime* value));
+        //Debug.Log(totalTime - (totalTime* value));
         float remainder = totalTime - (totalTime * value);
         timeText.text = FormatTime(remainder);
     }

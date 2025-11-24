@@ -63,7 +63,7 @@ public class JsonManager : MonoBehaviour
         portPath = Path.Combine(Application.streamingAssetsPath, "port.json");
         textPath = Path.Combine(Application.streamingAssetsPath, "titleText.json");
         gameDataPath = Path.Combine(Application.persistentDataPath, "gameSettingData.json");
-        timePath = Path.Combine(Application.persistentDataPath, "timeSetting.json");
+        timePath = Path.Combine(Application.streamingAssetsPath, "timeSetting.json");
 
         gameSettingData = LoadData(gameDataPath, gameSettingData);
         timeSetting = LoadData(timePath, timeSetting);
