@@ -20,8 +20,8 @@ MonoBehaviour:
     targetImage: {fileID: 0}
   - korean: "\uAC01\uC6B4\uB3D9\uB7C9 \uC2E4\uD5D8"
     english: Angular Momentum Experiment
-    koreanSprite: {fileID: 21300000, guid: c44989ff2889a51408e3aa7ff809e93f, type: 3}
-    englishSprite: {fileID: 21300000, guid: beba939c8c2fdc646920dac3c307abd6, type: 3}
+    koreanSprite: {fileID: 21300000, guid: 2b959321e2f10bc4fb1d411e1e62cd63, type: 3}
+    englishSprite: {fileID: 21300000, guid: 2b959321e2f10bc4fb1d411e1e62cd63, type: 3}
     targetImage: {fileID: 0}
   - korean: 
     english: 
