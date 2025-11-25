@@ -1,0 +1,7 @@
+t.text = "기본 사이즈 <size=70>여긴 크게</size> 다시 기본";
+t.text = "기본색 <color=#00FFFF>여기만 색 변경</color> 기본색";
+TMP_Text t = textObject.GetComponent<TMP_Text>();
+
+t.text = "기본폰트 <font=\"NanumBarunGothic SDF\">여기만 다른 폰트</font> 다시 기본";
+
+t.text = "일반 <b>굵게</b> <i>기울임</i> 끝";

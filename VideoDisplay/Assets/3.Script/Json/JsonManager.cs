@@ -14,10 +14,14 @@ public class TextJson
 {
     public string koTitle = "각운동량\n실험";
     public string koTitle2 = "각운동량실험";
+    public string koTitle3 = "각운동량실험";
     public string enTitle = "Angular\nMomentum\nExperiment\n";
     public string enTitle2 = "Angular Momentum Experiment";
-    public bool isAutoSize_Ko = true;
+    public string enTitle3 = "Angular Momentum Experiment";
+    public bool isAutoSize_Ko = false;
+    public bool isAutoSize_Sub = true;
     public float fontSize_Ko = 150;
+    public float fontSize_sub = 75;
     public bool isAutoSize_En = false;
     public float fontSize_En = 104;
     public int SceneIndex = 0;

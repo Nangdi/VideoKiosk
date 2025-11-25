@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +27,31 @@ public class TestText : MonoBehaviour
         {
             texts[2].fontSize = textData.fontSize_En;
         }
-        texts[0].text = textData.koTitle;
+        if (!textData.isAutoSize_Sub) 
+        {
+            texts[4].fontSize = textData.fontSize_sub;
+        }
+        else
+        {
+            texts[4].fontSize = texts[0].fontSize / 2;
+        }
+
+            texts[0].text = textData.koTitle;
         texts[2].text = textData.enTitle;
         texts[1].text = textData.koTitle2;
         texts[3].text = textData.enTitle2;
+        texts[4].text = textData.enTitle3;
+        float temp = texts[0].rectTransform.anchoredPosition.y - texts[0].rectTransform.sizeDelta.y;
+        Debug.Log($"temp 크기 : {texts[0].rectTransform.sizeDelta.y}");
+        StartCoroutine(TryGetSize_co());
+        texts[4].rectTransform.anchoredPosition = new Vector2(texts[4].rectTransform.anchoredPosition.x, temp);
         ChangeColor(JsonManager.instance.textJson.SceneIndex);
         //ChangeColor(3);
+    }
+    private void Update()
+    {
+        float temp = texts[0].rectTransform.anchoredPosition.y - texts[0].rectTransform.sizeDelta.y;
+        //Debug.Log($"temp 크기 : {texts[0].rectTransform.sizeDelta.y}");
     }
     public void ChangeColor(int index)
     {
@@ -41,5 +61,16 @@ public class TestText : MonoBehaviour
         texts[2].color = TextcolorCashs[index].color;
         sliderFill.color = sliderColorCashs[index].color;
         sliderHandleFill.color = sliderColorCashs[index].color;
+    }
+    IEnumerator TryGetSize_co()
+    {
+        yield return new WaitForEndOfFrame();
+
+            if (texts[0].rectTransform.sizeDelta.y != 0)
+            {
+                float temp = texts[0].rectTransform.anchoredPosition.y - texts[0].rectTransform.sizeDelta.y;
+                texts[4].rectTransform.anchoredPosition = new Vector2(texts[4].rectTransform.anchoredPosition.x, temp);
+                
+            }
     }
 }

@@ -171,6 +171,16 @@ public class AVProVideoController : MonoBehaviour
         //if (!isHandling) return;
         float totalTime = (float)mediaPlayer.Info.GetDuration();
         mediaPlayer.Control.Seek(totalTime * value);
+        //if( Mathf.Approximately(totalTime * value, totalTime))
+        //{
+        //    mediaPlayer.Control.Seek(totalTime-0.05f);
+        //}
+        if (totalTime - totalTime * value < 0.1f && !isHandling)
+        {
+            homeBtn();
+            Debug.Log($"끝까지왔다면 1로 보정") ;
+            // 끝 처리
+        }
         //Debug.Log(totalTime - (totalTime* value));
         float remainder = totalTime - (totalTime * value);
         timeText.text = FormatTime(remainder);
@@ -184,6 +194,6 @@ public class AVProVideoController : MonoBehaviour
         int seconds = Mathf.FloorToInt((ms % 60000f) / 1000f);
         int milliseconds = Mathf.FloorToInt(ms % 1000f);
 
-        return $"{minutes:00}:{seconds:00}:{milliseconds:00}";
+        return $"{minutes:00}:{seconds:00}";
     }
 }

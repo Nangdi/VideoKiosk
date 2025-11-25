@@ -1,10 +1,14 @@
 {
-    "koTitle": "각운동량\n실험",
+    "koTitle": "각운동량\n실험\n",
     "koTitle2": "각운동량실험",
+    "koTitle3": "각운동량실험",
     "enTitle": "Angular\nMomentum\nExperiment\n",
     "enTitle2": "Angular Momentum Experiment",
+    "enTitle3": "Angular Momentum Experiment",
     "isAutoSize_Ko": false,
+    "isAutoSize_Sub": true,
     "fontSize_Ko": 150.0,
+    "fontSize_sub": 75.0,
     "isAutoSize_En": false,
     "fontSize_En": 104.0,
     "SceneIndex": 0
