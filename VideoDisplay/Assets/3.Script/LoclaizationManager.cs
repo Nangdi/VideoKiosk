@@ -67,7 +67,7 @@ public class LoclaizationManager : MonoBehaviour
             case Language.Korean:
                 textObs[0].SetActive(true);
                 textObs[1].SetActive(true);
-                textObs[4].SetActive(true);
+                //textObs[4].SetActive(true);
                 break;
             case Language.English:
                 textObs[2].SetActive(true);

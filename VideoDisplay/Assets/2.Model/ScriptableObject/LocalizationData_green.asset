@@ -15,8 +15,8 @@ MonoBehaviour:
   entries:
   - korean: "\uAC01\uC6B4\uB3D9\uB7C9 \uC2E4\uD5D8"
     english: Angular Momentum Experiment
-    koreanSprite: {fileID: 21300000, guid: 00cbc5b8bc32ba34781f9edd008fb5bc, type: 3}
-    englishSprite: {fileID: 21300000, guid: b0017ab901bbdd94db209decfcdb2d66, type: 3}
+    koreanSprite: {fileID: 21300000, guid: 48152a9ca17cf3c448f1b02d3cc05a37, type: 3}
+    englishSprite: {fileID: 21300000, guid: a8a6a35e9d05f904b9df78667593f974, type: 3}
     targetImage: {fileID: 0}
   - korean: "\uAC01\uC6B4\uB3D9\uB7C9 \uC2E4\uD5D8"
     english: Angular Momentum Experiment
@@ -25,38 +25,38 @@ MonoBehaviour:
     targetImage: {fileID: 0}
   - korean: 
     english: 
-    koreanSprite: {fileID: 21300000, guid: 504a8f1ee897b144993e492b19ec6adb, type: 3}
-    englishSprite: {fileID: 21300000, guid: e3587569612dd2047869d483090a6a0c, type: 3}
+    koreanSprite: {fileID: 21300000, guid: 7a34cc0ee1d7c744fa3bf07890cf9e80, type: 3}
+    englishSprite: {fileID: 21300000, guid: 1432aa3dbf9e95448aa8ba9c39db6c57, type: 3}
     targetImage: {fileID: 0}
   - korean: 
     english: 
-    koreanSprite: {fileID: 21300000, guid: 2950b95c4ea7c51489aa76487a5194ae, type: 3}
-    englishSprite: {fileID: 21300000, guid: c7571c079cb2378439c6c90383a661ce, type: 3}
+    koreanSprite: {fileID: 21300000, guid: 846e081127b637044a292df14886a20a, type: 3}
+    englishSprite: {fileID: 21300000, guid: b55fb37d2010f6942851dc10f2ba9684, type: 3}
     targetImage: {fileID: 0}
   - korean: 
     english: 
-    koreanSprite: {fileID: 21300000, guid: c2c0e50c48e9fe84a80e4352a159e399, type: 3}
-    englishSprite: {fileID: 21300000, guid: be46983e27391964d92951e309bed48f, type: 3}
+    koreanSprite: {fileID: 21300000, guid: ce5f5c7840e688d4080e395db816e3c9, type: 3}
+    englishSprite: {fileID: 21300000, guid: 75bc06e0884ac814aade348423e621ff, type: 3}
     targetImage: {fileID: 0}
   - korean: 
     english: 
-    koreanSprite: {fileID: 21300000, guid: ae498c56a81114e4585b37c9780baf8c, type: 3}
-    englishSprite: {fileID: 21300000, guid: cbf9ee5e8b1a41c4c9f9aad42847619b, type: 3}
+    koreanSprite: {fileID: 21300000, guid: 8f6753c780b053649962087f2380ea58, type: 3}
+    englishSprite: {fileID: 21300000, guid: 693de5464ba267842a67b46f4f6425be, type: 3}
     targetImage: {fileID: 0}
   - korean: 
     english: 
-    koreanSprite: {fileID: 21300000, guid: e9762239de063b445bd5e3fa9e406f40, type: 3}
-    englishSprite: {fileID: 21300000, guid: f8593682bf3317d4b9a96711d398e775, type: 3}
+    koreanSprite: {fileID: 21300000, guid: 2765fd96dbf535148ae0ecfe72bd84f3, type: 3}
+    englishSprite: {fileID: 21300000, guid: 01c1ab802a7e1c640b0e665a58176ba6, type: 3}
     targetImage: {fileID: 0}
   - korean: 
     english: 
-    koreanSprite: {fileID: 21300000, guid: 695e7f096ed19254a9fa823e6082a799, type: 3}
-    englishSprite: {fileID: 21300000, guid: c46b9af679ec1fb4992ce78840284812, type: 3}
+    koreanSprite: {fileID: 21300000, guid: e787ad251debaf04898856a633684544, type: 3}
+    englishSprite: {fileID: 21300000, guid: 41bbdc6462b7f404bb3ef8b583e9b02f, type: 3}
     targetImage: {fileID: 0}
   - korean: 
     english: 
-    koreanSprite: {fileID: 21300000, guid: 2376d0c4f0082a74d918f9757d66d472, type: 3}
-    englishSprite: {fileID: 21300000, guid: f6c73769108eaa94b82d04320fdd3345, type: 3}
+    koreanSprite: {fileID: 21300000, guid: e16749947d4783c4e8b36a3448dc5093, type: 3}
+    englishSprite: {fileID: 21300000, guid: b17a4ee94b444ef4cbfed8a6749a8bdc, type: 3}
     targetImage: {fileID: 0}
   - korean: 
     english: 

@@ -12,13 +12,16 @@ public class ShowVideoController : MonoBehaviour
 {
     public MediaPlayer showMediaPlayer;  // show MediaPlayer
     public MediaPlayer mediaPlayer;  // AVPro MediaPlayer
+    public MediaPlayer titleMediaPlayer;  // title MediaPlayer
     public CanvasGroup showCanvasGroup;
     private string showFile= "show.mp4";
+    private string titleFile= "title.mp4";
     public int intervalMinutes = 10; // 기본은 60분(정각). Inspector에서 수정 가능
     float time = 0;
     void Start()
     {
-        GetShowFile();
+        GetShowFile(showMediaPlayer ,showFile, false ,false);
+        GetShowFile(titleMediaPlayer ,titleFile, true , true);
         StopShow();
         showMediaPlayer.Events.AddListener(OnMediaEvent);
         intervalMinutes = JsonManager.instance.timeSetting.showIntervalMinutes;
@@ -93,14 +96,14 @@ public class ShowVideoController : MonoBehaviour
         showCanvasGroup.DOFade(1, 0);
         showMediaPlayer.Control.Play();
     }
-    private void GetShowFile()
+    private void GetShowFile(MediaPlayer player, string fileName, bool autoPlay , bool loop)
     {
-        Debug.Log($"이름: {showFile}");
-        string path = Path.Combine(Application.streamingAssetsPath, showFile);
+        Debug.Log($"이름: {fileName}");
+        string path = Path.Combine(Application.streamingAssetsPath, fileName);
         Debug.Log($"경로: {path}");
 
-        showMediaPlayer.OpenMedia(MediaPathType.AbsolutePathOrURL, path, autoPlay: false);
-        showMediaPlayer.Control.SetLooping(false);
+        player.OpenMedia(MediaPathType.AbsolutePathOrURL, path, autoPlay: autoPlay);
+        player.Control.SetLooping(loop);
     }
     void OnMediaEvent(MediaPlayer mp, MediaPlayerEvent.EventType evtType, ErrorCode error)
     {
