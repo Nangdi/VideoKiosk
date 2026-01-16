@@ -5,10 +5,12 @@ using System.IO;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class AVProVideoController : MonoBehaviour
 {
     [SerializeField] private ButtonActiveController buttonController;
+    [SerializeField] private LoclaizationManager localizaionManager;
     [SerializeField] private HomeReturn homeReturn;
     public MediaPlayer mediaPlayer;  // AVPro MediaPlayer
     [SerializeField] private Slider playVar;
@@ -18,7 +20,7 @@ public class AVProVideoController : MonoBehaviour
     private string video1 = "video1.mp4";
     private string video2 = "video2.mp4";
     private string video3 = "video3.mp4";
-    
+    private string playingVideo;
     private bool isGuidePlaying = false;
     private string currentFile;
     private bool isHandling;
@@ -26,8 +28,10 @@ public class AVProVideoController : MonoBehaviour
 
     [SerializeField] private GameObject backGround;
 
+    private Dictionary<string, string> localizationPair = new Dictionary<string, string>();
     void Start()
     {
+        InitDic();
         // 버튼 이벤트 연결
         buttonController.buttons[0].onClick.AddListener(() => PlayGuide(video1));
         buttonController.buttons[1].onClick.AddListener(() => PlayGuide(video2));
@@ -94,7 +98,14 @@ public class AVProVideoController : MonoBehaviour
         mediaPlayer.OpenMedia(MediaPathType.AbsolutePathOrURL, path, autoPlay: true);
         mediaPlayer.Control.SetLooping(false);
     }
-
+    public void PlayLocalizationVideo()
+    {
+        if (mediaPlayer.Control.IsPlaying())
+        {
+            PlayGuide(localizationPair[currentFile]);
+            //SetCurrentTime(playVar.value);
+        }
+    }
     void OnMediaEvent(MediaPlayer mp, MediaPlayerEvent.EventType evtType, ErrorCode error)
     {
         if (evtType == MediaPlayerEvent.EventType.FinishedPlaying )
@@ -195,5 +206,32 @@ public class AVProVideoController : MonoBehaviour
         int milliseconds = Mathf.FloorToInt(ms % 1000f);
 
         return $"{minutes:00}:{seconds:00}";
+    }
+
+    public void LocalizationVideo(Language language)
+    {
+        switch (language)
+        {
+            case Language.Korean:
+                video1 = "video1.mp4";
+                video2 = "video2.mp4";
+                video3 = "video3.mp4";
+
+                break;
+            case Language.English:
+                video1 = "video1_en.mp4";
+                video2 = "video2_en.mp4";
+                video3 = "video3_en.mp4";
+                break;
+        }
+    }
+    private void InitDic()
+    {
+        localizationPair["video1.mp4"] = "video1_en.mp4";
+        localizationPair["video2.mp4"] = "video2_en.mp4";
+        localizationPair["video3.mp4"] = "video3_en.mp4";
+        localizationPair["video1_en.mp4"] = "video1.mp4";
+        localizationPair["video2_en.mp4"] = "video2.mp4";
+        localizationPair["video3_en.mp4"] = "video3.mp4";
     }
 }

@@ -16,6 +16,7 @@ public class LoclaizationManager : MonoBehaviour
     public LocalizationData[] DataStore;
     private LocalizationData localizationData;
     [SerializeField]private ButtonActiveController buttonActiveController;
+    [SerializeField] private AVProVideoController videoController;
     public List<Image> langImages= new List<Image>();
     public List<Button> langBtns= new List<Button>();
     public List<GameObject> textObs = new List<GameObject>();
@@ -45,6 +46,9 @@ public class LoclaizationManager : MonoBehaviour
         //buttonActiveController.ToggleRect(language);
         LocalizionToText(language);
         ChangeOnBtnSprite();
+        videoController.LocalizationVideo(language);
+        videoController.PlayLocalizationVideo();
+        //videoController.homeBtn();
     }
     private void ChangeOnBtnSprite()
     {

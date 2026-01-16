@@ -477,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonController: {fileID: 1034984622}
+  localizaionManager: {fileID: 0}
   homeReturn: {fileID: 510391636}
   mediaPlayer: {fileID: 1948279733}
   playVar: {fileID: 1096354534}
@@ -3857,6 +3858,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a19ae324b37fc0f4f8d0b45205b38168, type: 2}
   - {fileID: 11400000, guid: 932504ae54df7bb48886f812364c2c8e, type: 2}
   buttonActiveController: {fileID: 1034984622}
+  videoController: {fileID: 350452229}
   langImages:
   - {fileID: 1137092268}
   - {fileID: 1696395693}
@@ -4173,16 +4175,20 @@ PrefabInstance:
       value: 941
       objectReference: {fileID: 0}
     - target: {fileID: 2664602838538274061, guid: db65640487b49ef4399ec69fb0734228, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 600.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664602838538274061, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00025606
       objectReference: {fileID: 0}
     - target: {fileID: 2664602838538274061, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -501
+      value: -486.85
       objectReference: {fileID: 0}
     - target: {fileID: 2680158179339857529, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4140497839314754958, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4190,7 +4196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4140497839314754958, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 230.11
+      value: 600.69
       objectReference: {fileID: 0}
     - target: {fileID: 4140497839314754958, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4198,7 +4204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4140497839314754958, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -181
+      value: -186.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546658205924233895, guid: db65640487b49ef4399ec69fb0734228, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6623578096048617972, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4218,7 +4228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6679850653665264753, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_text
-      value: Rolling Race
+      value: 'Wave
+
+        Super
+
+        Position'
       objectReference: {fileID: 0}
     - target: {fileID: 6679850653665264753, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_margin.x
@@ -4230,11 +4244,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6679850653665264753, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_VerticalAlignment
-      value: 256
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 6679850653665264753, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011921676203762839, guid: db65640487b49ef4399ec69fb0734228, type: 3}
+      propertyPath: m_text
+      value: "\uC5ED\uC9C4\uC790 \uD478\uCF54"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011921676203762839, guid: db65640487b49ef4399ec69fb0734228, type: 3}
+      propertyPath: m_margin.y
+      value: 0.21221924
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011921676203762839, guid: db65640487b49ef4399ec69fb0734228, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 7011921676203762839, guid: db65640487b49ef4399ec69fb0734228, type: 3}
       propertyPath: m_HorizontalAlignment
